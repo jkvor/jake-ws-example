@@ -1,5 +1,7 @@
 ## Heroku compatible websockets example
 
+Create Heroku app
+
 ```
 $ heroku create -a jake-ws-example
 Creating jake-ws-example... done, region is us
@@ -7,11 +9,7 @@ http://jake-ws-example.herokuapp.com/ | git@heroku.com:jake-ws-example.git
 Git remote heroku added
 ```
 
-```
-$ date && host jake-ws-example.herokuapp.com
-Thu Aug  8 15:23:11 PDT 2013
-jake-ws-example.herokuapp.com has address 23.21.166.91
-```
+Enable websockets labs feature
 
 ```
 $ heroku labs:enable websockets
@@ -20,11 +18,7 @@ WARNING: This feature is experimental and may change or be removed without notic
 For more information see: Enable websocket support
 ```
 
-```
-$ date && host jake-ws-example.herokuapp.com
-Thu Aug  8 15:24:18 PDT 2013
-jake-ws-example.herokuapp.com has address 54.235.95.147
-```
+Push app to Heroku
 
 ```
 $ git push heroku master
@@ -43,13 +37,19 @@ To git@heroku.com:jake-ws-example.git
  * [new branch]      master -> master
 ```
 
+Run client locally
+
 ```
 $ SERVER=jake-ws-example.herokuapp.com node client.js 
 received: hello world!
 ^C
 ```
 
+Check logs for server console output
+
 ```
+$ heroku logs
+...
 2013-08-08T22:25:11.200510+00:00 heroku[web.1]: Starting process with command `node server.js`
 2013-08-08T22:25:13.198430+00:00 heroku[web.1]: State changed from starting to up
 2013-08-08T22:25:50.994732+00:00 app[web.1]: received: something from the client
